@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+        font-family: monospace !important;
+      }
+      .container {
+        background-color: #fff;
+        padding: 25px;
+        width: 275px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .header h1 {
+        font-size: 24px;
+        color: #000;
+      }
+      h1 > .l {
+        font-size: 30px;
+        color: #8c0000;
+      }
+      label {
+        font-weight: 700;
+        font-size: 16px;
+      }
+      .inp {
+        font-weight: 500;
+        width: 100%;
+        padding: 2.5px 3.75px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 2px solid #132;
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+      }
+      .inp,
+      .inp:focus {
+        outline: none;
+      }
+      button {
+        background-color: #8c0000;
+        color: white;
+        padding: 12px 20px;
+        margin: 8px 0;
+        width: 100%;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        opacity: 0.925;
+      }
+      button:hover {
+        opacity: 1;
+      }
+      .signup {
+        width: 250px;
+        padding: 0 7.5px;
+        text-align: center;
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .signup a {
+        font-weight: 800;
+        color: #8c0000;
+        text-decoration: none;
+      }
+      .signup a:hover {
+        text-decoration: underline;
+      }
+      </style>
+</head>
+<body>
+    <br>
+    <div class="bgc center">
+        <div class="container">
+          <div class="header">
+            <h1>Traffiker <span class="l">L</span>OGIN</h1>
+          </div>
+          <form method="post" action="">
+            {% csrf_token %}
+            <label for="uname">Username</label>
+            <input type="text" class="inp" name="username" required>
+            <label for="psw">Password</label>
+            <input type="password" class="inp" name="password" required>
+            <button type="submit">Enter</button>
+          </form>
+          <div class="signup">
+            <b>Don't have account?</b>
+            <a href="{% url 'signup' %}">Sign up</a>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
+
+
+
+
+
+

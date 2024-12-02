@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Traffiker</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+      /* Custom Navbar Styles */
+    .navbar-dark .navbar-nav .nav-link {
+      color: #ddd; /* Light color for navbar links */
+      font-size: 16px;
+      padding: 10px 15px;
+  }
+
+  .navbar-dark .navbar-nav .nav-link:hover {
+      color: #fff; /* Highlight color on hover */
+      background-color: #495057; /* Slightly darker background on hover */
+      border-radius: 5px;
+  }
+
+  .navbar-brand {
+      font-weight: bold;
+      font-size: 24px;
+  }
+
+  .navbar-toggler-icon {
+      background-color: #ddd; /* Light color for toggler icon */
+  }
+
+  /* Welcome text styling */
+  .navbar-text {
+      font-weight: 500;
+      font-size: 14px;
+      color: #fff;
+  }
+    </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'load_test_results' %}">Test Results</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'load_test_view' %}">Simple Test</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'advance_test_view' %}">Advance Test</a>
+          </li>
+          
+        </ul>
+        <div class="d-flex">
+          {%if request.user.is_authenticated%}
+          <ul class="navbar-nav me-auto  mb-lg-0">
+            <li class="nav-item">
+              <span class="nav-link">Welcome: {{request.user.first_name}}</span>
+            </li>
+          </ul>
+          <ul class="navbar-nav me-auto  mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+          </ul>
+          {%else%}
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Login</a>
+              </li>
+            </ul>
+          {%endif%}
+        </div>
+      </div>
+    </div>
+  </nav>
+  {%block content%}{%endblock%}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

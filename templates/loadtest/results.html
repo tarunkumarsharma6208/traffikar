@@ -1,0 +1,39 @@
+{% extends "loadtest/base.html" %}
+{%block content%}
+
+
+<div class="container">
+    <h1>Load Test Results</h1>
+
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Sno</th>
+                    <th>Url</th>
+                    <th>Request Count</th>
+                    <th>Time Interval</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for i in load_test%}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{i.url}}</td>
+                    <td>{{i.request_count}}</td>
+                    <td>{{i.time_interval}} Seconds</td>
+                    <td>{{i.is_test}}</td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+
+    <a href="{% url 'load_test_view' %}">Back to Test</a>
+</div>
+
+    
+   
+
+{%endblock%}

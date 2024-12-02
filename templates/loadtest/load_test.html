@@ -1,0 +1,38 @@
+{% extends "loadtest/base.html" %}
+
+{%block content%}
+
+
+<div class="container">
+    <h1>Simple Load Test <a class="btn btn-outline-secondary" href="{% url 'advance_test_view' %}">Advance Test</a></h1>
+    <div class="row">
+        <div class="col-12" style="background-color: antiquewhite;">
+            <form method="post" action="{% url 'load_test_view' %}">
+                {% csrf_token %}
+                <label for="url">Target URL:</label>
+                <input type="url" id="url" name="url" class="form-control" placeholder="https://www.example.com"  required><br>
+
+                <label for="request_count">Total Request Count:</label>
+                <select class="form-control" id="request_count" name="request_count" required>
+                    <option value="10"> 10 </option>
+                    <option value="100">100</option>
+                    <option value="500">500</option>
+                    <option value="1000">1000</option>
+                    <option value="5000">5000</option>
+                    <option value="10000">10000</option>
+                    
+                </select>
+                <br>
+                <!-- <label for="time_interval">Time Interval (seconds):</label>
+                <input type="number" class="form-control" id="time_interval" name="time_interval" step="0.1" min="0"><br> -->
+        
+                <button type="submit" class="btn btn-primary">Start Test</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+    
+   
+
+{%endblock%}

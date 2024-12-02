@@ -1,0 +1,48 @@
+{% extends "loadtest/base.html" %}
+
+{%block content%}
+
+
+<div class="container">
+    <h1>Load Test With Login <a class="btn btn-outline-primary" href="{% url 'load_test_view' %}">Simple Test</a></h1>
+    <div class="row">
+        <div class="col-12" style="background-color: antiquewhite;">
+            <form method="post" action="{% url 'load_test_view' %}">
+                {% csrf_token %}
+                <label for="url">Target URL:</label>
+                <input type="url" id="url" name="url" class="form-control" placeholder="https://www.example.com"  required><br>
+
+                <label for="url">Login URL:</label>
+                <input type="url" id="login_url" name="login_url" placeholder="https://www.example.com/login/"  class="form-control" required><br>
+
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" class="form-control" required><br><br>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" class="form-control" required><br><br>
+               
+
+                <label for="request_count">Total Request Count:</label>
+                <select class="form-control" id="request_count" name="request_count" required>
+                    <option value="10"> 10 </option>
+                    <option value="100">100</option>
+                    <option value="500">500</option>
+                    <option value="1000">1000</option>
+                    <option value="5000">5000</option>
+                    <option value="10000">10000</option>
+                    
+                </select>
+                
+                <br>
+        
+        
+                <button type="submit" class="btn btn-primary">Start Test</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+    
+   
+
+{%endblock%}
