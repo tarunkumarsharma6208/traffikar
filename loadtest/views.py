@@ -196,6 +196,21 @@ def advance_test_view(request):
 @login_required(login_url='/login')
 def load_test_results(request):
     load_test = LoadTest.objects.filter(user=request.user)
+
     
+    lit = []
+    for i in load_test:
+        d = {}
+        log1 = RequestLog.objects.filter(test=i)
+        for j in log1:
+            if j.status_code not in d:
+                d['status_code'] = j.status_code
+            if j.url not in d:
+                d['url'] = j.url
+        lit.append({
+            'request_count': i.request_count,
+            'data': d,
+        })
+
     # You can enhance this with actual results if you store them
-    return render(request, "loadtest/results.html", {"load_test": load_test})
+    return render(request, "loadtest/results.html", {"load_test": load_test, 'lit': lit})

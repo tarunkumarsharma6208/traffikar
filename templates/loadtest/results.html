@@ -6,29 +6,63 @@
     <h1>Load Test Results</h1>
 
     <div class="row">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Sno</th>
-                    <th>Url</th>
-                    <th>Request Count</th>
-                    <th>Time Interval</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                {%for i in load_test%}
-                <tr>
-                    <td>{{forloop.counter}}</td>
-                    <td>{{i.url}}</td>
-                    <td>{{i.request_count}}</td>
-                    <td>{{i.time_interval}} Seconds</td>
-                    <td>{{i.is_test}}</td>
-                </tr>
-                {%endfor%}
-            </tbody>
-        </table>
+        <div class="col-8">
+            <div class="row">
+                <table class="table table-bordered border-primary">
+                    <thead>
+                        <tr>
+                            <th>Sno</th>
+                            <th>Url</th>
+                            <th>Request Count</th>
+                            <th>Time Interval</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%for i in load_test%}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{i.url}}</td>
+                            <td>{{i.request_count}}</td>
+                            <td>{{i.time_interval}} Seconds</td>
+                            <td>{{i.is_test}}</td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-4 ">
+            <div class="row">
+                <table class="table table-bordered border-primary" >
+                    <thead>
+                        <tr>
+                            <th>Sno</th>
+                            <th>Request Count</th>
+                            <th>Data</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%for i in lit%}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{i.request_count}}</td>
+                            <td>{{i.data}}</td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
+
+ 
+
+    
+
+   
 
     <a href="{% url 'load_test_view' %}">Back to Test</a>
 </div>
