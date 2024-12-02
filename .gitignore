@@ -1,0 +1,55 @@
+# Python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Django migrations
+*/migrations/
+
+# Database files
+*.sqlite3
+
+# Virtual environment
+venv/
+env/
+ENV/
+.venv/
+
+# IDE files
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Log files
+*.log
+
+# Python egg files
+*.egg
+*.egg-info/
+
+# Static and media files
+/static/
+media/
+
+# Coverage reports
+.coverage
+*.cover
+
+# Django secret key
+*.env
+
+# Local configuration files
+local_settings.py
+
+# Django settings for production environments
+settings.pyc
+
+# Pytest
+*.coveragerc
+*.tox
